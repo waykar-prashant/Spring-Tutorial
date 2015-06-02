@@ -22,15 +22,15 @@ public class App {
 		ApplicationContext context = new ClassPathXmlApplicationContext("com/sjsu/edu/beans/beans.xml");
 		
 		Person person1 = (Person)context.getBean("person");
-		Person person2 = (Person)context.getBean("person");
+		//Person person2 = (Person)context.getBean("person");
 		
 		//Person person = new Person();
 		person1.speak();
-		Address address = (Address)context.getBean("address");
-		System.out.println(address);
+		//Address address = (Address)context.getBean("address");
+		//System.out.println(address);
 		person1.setTaxId(999);
 		System.out.println(person1);
-		System.out.println(person2);
+		//System.out.println(person2);
 		
 		
 		//to close the application context

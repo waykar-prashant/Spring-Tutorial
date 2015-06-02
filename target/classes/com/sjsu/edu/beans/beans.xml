@@ -6,10 +6,20 @@
 
 	<!-- Create Bean and set properties of the Bean via Constructor arguments -->
 	<bean id="person" class="com.sjsu.edu.Person" scope="singleton"
-		init-method="onCreate" destroy-method="onDestroy">
+		init-method="onCreate" destroy-method="onDestroy"
+		factory-method="getInstance">
 		<constructor-arg value="100" name="id"></constructor-arg>
 		<constructor-arg value="Prashant" name="name"></constructor-arg>
 		<property name="taxId" value="123"></property>
+		<property name="address" ref="address"></property>
+	</bean>
+	
+	<bean id="person2" class="com.sjsu.edu.Person" scope="singleton"
+		init-method="onCreate" destroy-method="onDestroy"
+		factory-method="createPerson" factory-bean="personfactory">
+		<constructor-arg value="101" name="id"></constructor-arg>
+		<constructor-arg value="Praveen" name="name"></constructor-arg>
+		<property name="taxId" value="101"></property>
 		<property name="address" ref="address"></property>
 	</bean>
 	<bean id="address" class="com.sjsu.edu.Address">
@@ -18,4 +28,5 @@
 		</constructor-arg>
 		<constructor-arg name="postcode" value="95112"></constructor-arg>
 	</bean>
+	<bean id="personfactory" class="com.sjsu.edu.PersonFactory"></bean>
 </beans>
