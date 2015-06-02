@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-init-method="init" default-destroy-method="destroy">
+
+	<!-- Create Bean and set properties of the Bean via Constructor arguments -->
+	<bean id="person" class="com.sjsu.edu.Person" scope="singleton"
+		init-method="onCreate" destroy-method="onDestroy">
+		<constructor-arg value="100" name="id"></constructor-arg>
+		<constructor-arg value="Prashant" name="name"></constructor-arg>
+		<property name="taxId" value="123"></property>
+		<property name="address" ref="address"></property>
+	</bean>
+	<bean id="address" class="com.sjsu.edu.Address">
+		<constructor-arg name="street"
+			value="101 E. San Fernando Street">
+		</constructor-arg>
+		<constructor-arg name="postcode" value="95112"></constructor-arg>
+	</bean>
+</beans>
