@@ -23,13 +23,13 @@ public class App {
 		
 		Person person1 = (Person)context.getBean("person");
 		//Person person2 = (Person)context.getBean("person");
-		
-		//Person person = new Person();
-		person1.speak();
-		//Address address = (Address)context.getBean("address");
-		//System.out.println(address);
 		person1.setTaxId(999);
 		System.out.println(person1);
+
+		//Person person = new Person();
+		//person1.speak();
+		Address address = (Address)context.getBean("address2");
+		System.out.println(address);
 		//System.out.println(person2);
 		
 		
